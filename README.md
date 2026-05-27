@@ -20,7 +20,7 @@ World Explorer is a Next.js project that allows users to explore countries aroun
 REST Countries API
 
 #Screenshots
-![App Screenshot](public/home.png)
+<img width="1857" height="885" alt="image" src="https://github.com/user-attachments/assets/242049c1-8e83-4599-84f5-8c2b706e1e66" />
 
 ## Run Locally
 
