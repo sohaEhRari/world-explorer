@@ -51,14 +51,12 @@ body {
                colorChange 5s linear infinite;
   }
   
-  /* Moving up & down */
   @keyframes floatText {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
   }
   
-  /* Changing colors */
   @keyframes colorChange {
     0% { color: #38bdf8; }
     25% { color: #a78bfa; }
@@ -103,15 +101,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
+
+  padding: 0 20px;
 
   background-color: #0f172a;
 
   position: sticky;
   top: 0;
   z-index: 1000;
-  
 }
 
+/* Logo */
+.logo {
+  font-weight: bold;
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Desktop Navigation */
 .navi {
   display: flex;
   gap: 30px;
@@ -135,13 +143,49 @@ body {
   transform: scale(1.1);
 }
 
-.logo{
-  font-weight: bold;
-  color: white;
-  font-size: larger;
-  display: flex;
-  margin:20px;
+.menu-btn {
+  display: none;
 
+  background: none;
+  border: none;
+
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+  .navplus {
+    justify-content: space-between;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .navi {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+
+    flex-direction: column;
+    gap: 20px;
+
+    width: 200px;
+
+    padding: 20px;
+
+    background: #1e293b;
+    border-radius: 15px;
+
+    display: none;
+  }
+
+  .navi.active {
+    display: flex;
+  }
 }
 .foot p{
   display: flex;
@@ -201,7 +245,7 @@ colorChange 5s linear infinite;
 .country-card h1 p{
   font-weight: bold;
   font-family: cursive;
-  margin: 5px;
+  margin-bottom: 20px;
 }
 
 .country-card a{
@@ -262,196 +306,95 @@ font-family: serif;
   background: linear-gradient(to bottom right, #020617, #0f172a);
   color: white;
   padding: 80px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   position: relative;
   overflow: hidden;
   font-family: sans-serif;
 }
 
-.search::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: rgba(234, 179, 8, 0.08);
-  filter: blur(120px);
-  border-radius: 50%;
-  top: -100px;
-  left: -100px;
-}
-
-.search::after {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: rgba(59, 130, 246, 0.08);
-  filter: blur(120px);
-  border-radius: 50%;
-  bottom: -120px;
-  right: -120px;
-}
-
-/* HERO SECTION */
 .search h1 {
-  font-size:40px;
   text-align: center;
-  font-weight: 800;
   margin-bottom: 20px;
-  letter-spacing: -2px;
-  position: relative;
-  z-index: 2;
 }
 
-.search > p {
-  text-align: center;
-  font-size: 20px;
-  color: #94a3b8;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  line-height: 1.8;
-  position: relative;
-  z-index: 2;
-}
-
-.search input {
+.search-input {
   width: 100%;
-  max-width: 700px;
-  display: block;
-  margin: 0 auto 70px;
-  padding: 22px 28px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  color: white;
-  font-size: 18px;
+  max-width: 500px;
+
+  padding: 12px 16px;
+  margin-bottom: 30px;
+
+  border-radius: 10px;
+  border: none;
   outline: none;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
 }
 
-.search input::placeholder {
-  color: #94a3b8;
-}
-
-.search input:focus {
-  border-color: rgba(234, 179, 8, 0.4);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 40px rgba(234, 179, 8, 0.15);
-}
-
-/* GRID */
 .country-search {
+  width: 100%;
+  max-width: 1200px;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .country-key {
-  overflow: hidden;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(18px);
-  transition: all 0.35s ease;
+  padding: 15px;
+  border-radius: 12px;
+
+  text-align: center;
+
+  transition: 0.3s;
 }
 
 .country-key:hover {
-  transform: translateY(-10px);
-  border-color: rgba(234, 179, 8, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
 }
 
 .country-key img {
   width: 100%;
-  height: 330px;
+  height: 120px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  border-radius: 8px;
 }
 
-.country-key:hover img {
-  transform: scale(1.08);
-}
+@media (max-width: 600px) {
+  .search {
+    padding: 60px 16px;
+  }
 
-/* CARD CONTENT */
-.country-key h2 {
-  font-size: 28px;
-  margin: 24px 24px 16px;
-  font-weight: 700;
+  .country-key img {
+    height: 100px;
+  }
 }
-
-.country-key p {
-  margin: 10px 24px;
-  color: #cbd5e1;
-  line-height: 1.6;
-}
-
-.country-key p span {
-  color: #64748b;
-}
-
-.country-key a {
+.view-btn {
   display: inline-block;
-  margin: 24px;
-  padding: 14px 24px;
-  border-radius: 18px;
+
+  margin-top: 10px;
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: #facc15;
-  border: 1px solid rgba(250, 204, 21, 0.2);
-  background: rgba(250, 204, 21, 0.08);
-  transition: all 0.3s ease;
+  font-weight: 500;
+
+  transition: 0.3s;
 }
 
-.country-key a:hover {
-  background: #facc15;
+.view-btn:hover {
+  background: #38bdf8;
   color: black;
+
+  transform: translateY(-2px);
 }
-
-/* EMPTY STATE */
-.empty {
-  text-align: center;
-  margin-top: 80px;
-  padding: 80px 20px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(18px);
-}
-
-.empty h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.empty p {
-  color: #94a3b8;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .search h1 {
-    font-size: 48px;
-  }
-
-  .search > p {
-    font-size: 17px;
-  }
-
-  .search input {
-    padding: 18px 22px;
-  }
-
-  .country-key h2 {
-    font-size: 24px;
-  }
-}
-
 .load{
   display: flex;
   justify-content: center;
@@ -498,7 +441,6 @@ font-family: serif;
   box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
 }
 
-/* floating animation */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
