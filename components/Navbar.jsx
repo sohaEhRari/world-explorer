@@ -1,21 +1,38 @@
 
-import Link from "next/link";
+"use client"
 
-export default function Navbar(){
-    return (
-        <div className="navplus">
-            <div className="logo">World Explorer</div>
-        <nav className="navi">
+import Link from "next/link"
+import { useState } from "react"
 
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
 
-            <Link href="/">Home</Link>
-            <Link href="/countries">countries</Link>
-            <Link href="/search">search</Link>
-            
-           <Link href="/about">about</Link>
- </nav>           
-</div>
+  return (
+    <div className="navplus">
+      <div className="logo">🌎World Explorer</div>
 
-        
-    )
+      <button
+        className="menu-btn"
+        onClick={() => setOpen(!open)}
+      >
+        ☰
+      </button>
+
+      <nav className={`navi ${open ? "active" : ""}`}>
+        <Link href="/">Home</Link>
+
+        <Link href="/countries">
+          Countries
+        </Link>
+
+        <Link href="/search">
+          Search
+        </Link>
+
+        <Link href="/about">
+          About
+        </Link>
+      </nav>
+    </div>
+  )
 }
