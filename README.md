@@ -24,6 +24,9 @@ REST Countries API
 
 <img width="1796" height="856" alt="image" src="https://github.com/user-attachments/assets/5fc7a31f-9214-48c9-a196-eda96bf9d12a" />
 
+<img width="1881" height="910" alt="image" src="https://github.com/user-attachments/assets/1074a76a-e964-4ea0-8445-99a6c8c4a677" />
+
+
 
 ## Run Locally
 
